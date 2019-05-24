@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form action="https://postman-echo.com/post" method="post">
+
+	<h2>Laboratorio</h2>
+	<h3>Contacto</h3>
+
+	<u>Nombre:</u><br>
+	<input type="name" name="nombre" required>
+	<br><br>
+
+	<u>Email:</u><br>
+	<input type="email" name="email" required>
+	<br><br>
+
+	<u>Origen:</u><br>
+	<select>
+		<option value="sectorA">Sector A</option>
+		<option value="sectorB">Sector B</option>
+		<option value="sectorC">Sector C</option>
+	</select>
+	<br><br>
+
+	<u>Comentarios:</u><br>
+	<textarea name="texto" id="texto" cols="40" rows="5">Escriba su comentario aqui
+	</textarea>
+	<br><br>
+
+	<u>Estado Civil:</u><br>
+	<input type="radio" name="estadoCivil" required>Casado<br>
+	<input type="radio" name="estadoCivil" required>Soltero<br>
+	<br>
+
+	<input type="checkbox" name="terminos" required>Acepta terminos y condiciones
+	<br><br>
+
+	<input type="submit" name="Enviar" style="background-color:#413B5A;color:white">
+
+</body>
+</html>

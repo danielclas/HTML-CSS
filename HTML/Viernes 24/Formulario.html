@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form action="https://postman-echo.com/post" method="post">
+		Nombre: <br>
+		<input type="text" name="Nombre" required><br><br>
+		Apellido: <br>
+		<input type="text" name="Apellido"><br><br>
+		Edad: <br>
+		<input type="number" name="Edad"><br><br>
+		Email: <br>
+		<input type="email" name="email"><br><br>
+		Contraseña: <br>
+		<input type="password" name="password"><br><br>
+		Notas: <br>
+		<textarea name="notas" id="notas" cols="30" rows="10">Ingrese algo</textarea><br><br>
+
+		Genero:<br>
+		<input type="radio" name="genero" value="masculino">
+		Masculino<br>
+		<input type="radio" name="genero" value="femenino">
+		Femenino<br><br>
+
+		Estudios:<br>
+		<input type="checkbox" name="primaria" checked>Primaria<br>
+		<input type="checkbox" name="secundaria">Secundaria<br>
+		<input type="checkbox" name="Universitario">Universitario<br>
+		<br>
+		
+		Rango:<br>
+		<input type="range" name="rango" min="0" max="100" value=0>
+		<br>
+
+		Marca Vehiculo:<br>
+		<select name="vehiculo">
+			<option value="" selected></option>
+			<option value="ford">Ford</option>
+			<option value="renault" disabled>Renault</option>
+			<option value="chevrolet" >Chevrolet</option>
+			<option value="volkswagen">Volkswagen</option>
+			<option value="fiat">Fiat</option>
+		</select>
+
+		
+		
+		<input type="Submit" value="Enviar"><!--Genera un boton-->
+	</form>
+
+
+</body>
+</html>
