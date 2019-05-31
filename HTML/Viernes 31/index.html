@@ -31,9 +31,22 @@
 </head>
 <body>
     <div class="caja-semaforo">
-    <div class="luz-semaforo"></div>
-    <div class="luz-semaforo"></div>
-    <div class="luz-semaforo"></div>
+    <div class="luz-semaforo" id="red"></div>
+    <div class="luz-semaforo" id="yellow"></div>
+    <div class="luz-semaforo" id="green"></div>
     </div>
+
+    <script>
+    function cambiarColor(id, prender){
+        var color='grey';
+        if(prender)color=id;
+        document.querySelector('#'+id).style.backgroundColor=color;
+    }
+
+    cambiarColor('red', true);
+    cambiarColor('yellow', true);
+    cambiarColor('green', !true);
+
+    </script>
 </body>
 </html>
