@@ -53,41 +53,44 @@
         document.getElementById(id).style.backgroundColor=color;
     }
 
+    
+
     cambiarColor('red', true);
     cambiarColor('yellow', !true);
     cambiarColor('green', !true);
 
+    setInterval(botonCambiar, 1500);
+
     var estado=0;
 
     function botonCambiar(){
-        console.log('Evento boton cambiar '+estado++);
+        console.log('Evento boton cambiar '+estado++);    
+
         if(estado>3)estado=0;     
 
          switch(estado){
             case 0:
-            cambiarColor('red', true);
-            cambiarColor('yellow', !true);
-            cambiarColor('green', !true);
+                cambiarColor('red', true);
+                cambiarColor('yellow', !true);
+                cambiarColor('green', !true);
             break;
             case 1:
-            cambiarColor('red', !true);
-            cambiarColor('yellow', true);
-            cambiarColor('green', !true);
+                cambiarColor('red', true);
+                cambiarColor('yellow', true);
+                cambiarColor('green', !true);
             break;
             case 2:
-            cambiarColor('red', !true);
-            cambiarColor('yellow', !true);
-            cambiarColor('green', true);
+                cambiarColor('red', !true);
+                cambiarColor('yellow', !true);
+                cambiarColor('green', true);
             break;
             case 3:
-            cambiarColor('red', !true);
-            cambiarColor('yellow', true);
-            cambiarColor('green', !true);
+                cambiarColor('red', !true);
+                cambiarColor('yellow', true);
+                cambiarColor('green', !true);
             break;
-            }   
-    }
-
-    
+        }   
+    }   
 
     </script>
 </body>
