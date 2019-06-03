@@ -5,93 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semaforo(js)</title>
-    <style>
-    .caja-semaforo{
-        padding:10px;
-        border:1px solid black;
-        border-radius:40px;
-        width: 100px;
-        margin: 0 auto;
-        background-color: rgb(50,50,50);
-
-
-    }
-    .luz-semaforo{
-            width:50px;
-            height:50px;
-            border-radius:50%;
-            background-color: gray;
-            border:2px black;
-            padding: 10px;
-            margin: 0 auto;
-            margin-top:10px;
-            margin-bottom:10px;
-    }
-    .centrar{
-        text-align:center;
-        margin-top:20px;
-    }
-    </style>
+    <link rel="stylesheet" href="CSS/css.css">
+    
 </head>
 <body>
     <div class="caja-semaforo">
     <div class="luz-semaforo" id="red"></div>
     <div class="luz-semaforo" id="yellow"></div>
     <div class="luz-semaforo" id="green"></div>
+    </div>   
+
+    <div class="centrar" >        
+        <button onclick="botonAuto()" id="boton-auto" class="boton">
+            AUTOMATICO
+        </button>           
     </div>
 
-    <div class="centrar">
-        <button onclick="botonCambiar()">
-            CAMBIAR
-        </button>
+    <div class="centrar" id="boton-cambiar">
+        <button onclick="botonCambiar()" class="boton">
+            Cambiar
+        </button>                
     </div>
-    <script>
-    function cambiarColor(id, prender){
-        var color='grey';
-        if(prender)color=id;
-        //document.querySelector('#'+id).style.backgroundColor=color;
-        document.getElementById(id).style.backgroundColor=color;
-    }
 
-    
+    <script src="js/main.js"></script>
 
-    cambiarColor('red', true);
-    cambiarColor('yellow', !true);
-    cambiarColor('green', !true);
-
-    setInterval(botonCambiar, 1500);
-
-    var estado=0;
-
-    function botonCambiar(){
-        console.log('Evento boton cambiar '+estado++);    
-
-        if(estado>3)estado=0;     
-
-         switch(estado){
-            case 0:
-                cambiarColor('red', true);
-                cambiarColor('yellow', !true);
-                cambiarColor('green', !true);
-            break;
-            case 1:
-                cambiarColor('red', true);
-                cambiarColor('yellow', true);
-                cambiarColor('green', !true);
-            break;
-            case 2:
-                cambiarColor('red', !true);
-                cambiarColor('yellow', !true);
-                cambiarColor('green', true);
-            break;
-            case 3:
-                cambiarColor('red', !true);
-                cambiarColor('yellow', true);
-                cambiarColor('green', !true);
-            break;
-        }   
-    }   
-
-    </script>
 </body>
 </html>
