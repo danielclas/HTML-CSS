@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var nro, romano;
+        nro=prompt("Ingrese un nro: ");
+        nro=parseInt(nro);
+        
+        while(nro<1 || nro>10){
+            nro=prompt("Ingrese un nro valido: ");
+            nro=parseInt(nro);
+        }       
+
+        switch(nro){
+            case 1:
+                romano="I";
+                break;
+            case 2:
+                romano="II";
+                break;
+            case 3:
+                romano="III";
+                break;
+            case 4:
+                romano="IV";
+                break;
+            case 5:
+                romano="V";
+                break;
+            case 6:
+                romano="VI";
+                break;
+            case 7:
+                romano="VII";
+                break;
+            case 8:
+                romano="VIII";
+                break;
+            case 9:
+                romano="IX";
+                break;
+            case 10:
+                romano="X";
+                break;
+        }
+
+        alert("El numero "+nro+" en romano es: "+romano);        
+        
+    </script>
+
+
+
+</body>
+</html>
