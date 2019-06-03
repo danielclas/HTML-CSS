@@ -9,7 +9,7 @@
 <body>
     <script>    
 
-        var nro, flagP, primos='';
+        var nro, flagP, primos=' ';
 
         nro=prompt("Ingrese un nro: ");
         nro=parseInt(nro);
@@ -19,23 +19,25 @@
             nro=parseInt(nro);
         }
 
-        alert("Nros. primos entres 1 y "+nro);
+        alert("Nros. primos entres 1 y "+nro+": ");
 
         for(var i=nro ; i>1 ; i--){
-            
-            flagP=1;
+
+            flagP=true;
+
             for(var j=i-1 ; j>1 ; j--){
                 if(i%j==0){                    
-                    flagP=0;
+                    flagP=false;
+                    break;
                 }
             }
 
-            if(flagP==1){
-                alert(i+" es primo");
+            if(flagP==true){                
+                primos=primos.concat(i, "\n");                
             }
         }
 
-      
+        alert("Nros. primos entres 1 y "+nro+": \n"+primos);
 
         
         

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var horas=0, dif=0, costo=0;
+        
+        horas=prompt("Ingrese cantidad de horas: ");
+        horas=parseInt(horas);
+
+        if(horas<=2){
+            costo=horas*40;
+        }else{
+            if(horas<=5){
+                dif=horas-2;
+                costo=80+(dif*30);                
+            }else{
+                if(horas<=9){
+                    dif=horas-5;
+                    costo=170+(dif*25);                    
+                }else{
+                    if(horas>=10 && horas<=24){                        
+                        costo=300;
+                    }else{
+                        costo=500;
+                    }
+                }
+            }
+        }
+        
+        alert("El costo es: "+costo); 
+        
+        
+        
+        
+        
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
