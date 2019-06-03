@@ -7,29 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-    
     <script>
-        var nro;
-        var romanos=['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
         
-        do{
+        mostrar los nros primos entre 1 y un nro ingresado
+        
+        var nro, flagP=0;
 
         nro=prompt("Ingrese un nro: ");
         nro=parseInt(nro);
-        
-        while(nro<1 || nro>10){
+
+        while(nro<0){
             nro=prompt("Ingrese un nro valido: ");
             nro=parseInt(nro);
-        }   
+        }
 
-        alert("El numero "+nro+" en romano es: "+romanos[nro-1]); 
+        alert("Nros. primos entres 1 y "+nro);
+        for(var i=1 ; i<nro ; i++){
+                if(nro%i==0){
 
-        }while(confirm('Desea continuar?'));
-               
+                }
+        }
+
         
+        
+        
+    
+    
+    
+    
     </script>
-
-
-
 </body>
 </html>

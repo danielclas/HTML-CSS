@@ -11,21 +11,28 @@
         
         var nro;
 
+        do{
+
         nro=prompt("Ingrese un nro: ");
         nro=parseInt(nro);
 
-        while(nro<1 || parseInt(nro)==null){
-            nro=prompt("Ingrese un nro valido: ");
-            nro=parseInt(nro);
-        }   
+            while(nro<1){
+                nro=prompt("Ingrese un nro valido: ");
+                nro=parseInt(nro);
+            }
 
-        do{            
-            alert("Cuenta regresiva: "+nro);
-            nro--;
+            do{      
 
-        }while(nro>0);
+                alert('Cuenta regresiva: '+nro);
+                nro--;              
 
-        alert("Largaron!");    
+            }while(nro>0);
+
+        console.log('Largaron!');   
+
+        }while(confirm('Desea continuar?'));  
+     
+      
 
     </script>
 </body>
