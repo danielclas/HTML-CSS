@@ -27,6 +27,10 @@
             margin-top:10px;
             margin-bottom:10px;
     }
+    .centrar{
+        text-align:center;
+        margin-top:20px;
+    }
     </style>
 </head>
 <body>
@@ -36,6 +40,11 @@
     <div class="luz-semaforo" id="green"></div>
     </div>
 
+    <div class="centrar">
+        <button onclick="botonCambiar()">
+            CAMBIAR
+        </button>
+    </div>
     <script>
     function cambiarColor(id, prender){
         var color='grey';
@@ -45,8 +54,40 @@
     }
 
     cambiarColor('red', true);
-    cambiarColor('yellow', true);
-    cambiarColor('green', true);
+    cambiarColor('yellow', !true);
+    cambiarColor('green', !true);
+
+    var estado=0;
+
+    function botonCambiar(){
+        console.log('Evento boton cambiar '+estado++);
+        if(estado>3)estado=0;     
+
+         switch(estado){
+            case 0:
+            cambiarColor('red', true);
+            cambiarColor('yellow', !true);
+            cambiarColor('green', !true);
+            break;
+            case 1:
+            cambiarColor('red', !true);
+            cambiarColor('yellow', true);
+            cambiarColor('green', !true);
+            break;
+            case 2:
+            cambiarColor('red', !true);
+            cambiarColor('yellow', !true);
+            cambiarColor('green', true);
+            break;
+            case 3:
+            cambiarColor('red', !true);
+            cambiarColor('yellow', true);
+            cambiarColor('green', !true);
+            break;
+            }   
+    }
+
+    
 
     </script>
 </body>
