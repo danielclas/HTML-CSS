@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <script>
+
+    $(document).ready(function(){
+        //Para insertar HTML con formato
+        $('div').html('<h1 style="color:orange;">Hola mundo</h1>');
+            
+        //Para insertar texto puro
+        //$('div').text('<h1 style="color:orange;">Hola mundo</h1>');
+                
+        //Inyecto texto en elemento p
+        $('#texto-id').text('<span stlye="color:blue;"> Hola JQuery </span>');
+            
+        //Inyecto texto en clase
+        $('.texto-class').html('<span style="color:red;size:30pt"> Hola JQuery </span>');
+        
+        //Creo una funcion anonima para el evento mouseover del elemento id=parrafo
+        $("#parrafo").mouseover(function(){
+            $('#parrafo').css('background-color','blue');
+            $('#parrafo').css('color','white');
+        });
+
+        //Aplico color nulo para recuperar el default
+        $("#parrafo").mouseout(function(){
+            $('#parrafo').css('background-color','');
+            $('#parrafo').css('color','');
+        });
+    
+    
+    })      
+                
+    </script>        
+
+    <div></div>   
+        <p id="texto-id"></p>
+        <p class="texto-class"></p>
+        <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta atque, cum libero dolor optio quaerat possimus. Laboriosam, nemo quaerat dolor consectetur cupiditate nobis qui maxime, esse quo nesciunt illo!</p>
+    <script>
+    
+    </script>
+    
+</body>
+</html>
