@@ -59,31 +59,64 @@
             }
         ];
 
+        var datosFormulario = {};
+        
+
         function validar(e){
-                
+
                 var id=e.id;             
                 var dato= $('#'+id).val();
-                console.log(id+dato);
+                console.log(id+dato);              
+                if(dato!=''){
 
-                if(dato=='')console.log('Error');
+                    datosFormulario[id]=dato;   
+                    $('#error-'+id).hide();
+                }else{
+                    $('#error-'+id).show();
+                }
             }
+        
+
 
         $(document).ready(function () {
+
+            $('#enviado').hide();
+            $('#error-nombre').hide();
+            $('#error-contraseña').hide();
+            $('#error-apellido').hide();
+            $('#error-email').hide();
             console.log('Documento listo');
 
+            $('#boton-enviar').click(function(){
+
+                console.log(datosFormulario);
+                //Cheque que se hayan guardado todos los datos
+                if(Object.keys(datosFormulario).length==4){
+                    console.log('OK Envio');
+                    //Si esta OK, envia los datos al formulario
+                    enviarDatosPost(datosFormulario);
+                    datosFormulario={};
+                    //Si envio los datos, reseteo datos formulario para volver a cargarlo
+                    $('form')[0].reset();
+                    //Como hay un solo formulario, no tengo que poner ID
+                    enviado=true;
+                    $('#enviado').show();                    
+                }           
+            })            
+
             $('#enviar-datos').click(function () {
-                enviarDatosPost(usuario);
+                enviarDatosPost(datosFormulario);
             })
 
-            function enviarDatosPost(usuario) {
-                for (var i = 0; i < usuario.length; i++) {
+            function enviarDatosPost(datosFormulario) {
+               // for (var i = 0; i < usuario.length; i++) {
                     $.ajax({
 
                         url: 'https://5cf8019e7f67dd0014a62ef9.mockapi.io/usuariosAjax',
                         dataType: 'json',
                         type: 'post',
                         //contentType: 'application/json',
-                        data: usuario[i],
+                        data: datosFormulario,
                         //processData: false,
                         success: function (data, textStatus, jQxhr) {
                             console.log('OK!', data);
@@ -92,7 +125,7 @@
                             console.log(errorThrown);
                         }
                     })
-                }
+                //}
 
 
             }
@@ -121,25 +154,35 @@
         <h1>Formulario de envio</h1>
         <hr>       
 
-        <form>
+        <form novalidate>
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" onblur="validar(this)" id="nombre" placeholder="Ingrese nombre">                
+            <div id="error-nombre" class="alert alert-danger">Campo no valido</div>
             </div>
+            
             <div class="form-group">
                     <label for="apellido">Apellido</label>
                     <input type="text" class="form-control" onblur="validar(this)" id="apellido" placeholder="Ingrese apellido">                
+            <div id="error-apellido" class="alert alert-danger">Campo no valido</div>
             </div>
+
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" onblur="validar(this)" id="email" placeholder="Ingrese email">
+            <div id="error-email" class="alert alert-danger">Campo no valido</div>
             </div>
+
             <div class="form-group">
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" class="form-control" onblur="validar(this)" id="contraseña" placeholder="Ingrese contraseña">
-                </div>
+                <label for="contraseña">Contraseña</label>
+                <input type="password" class="form-control" onblur="validar(this)" id="contraseña" placeholder="Ingrese contraseña">
+            <div id="error-contraseña" class="alert alert-danger">Campo no valido</div>    
+            </div>
+
+            <p id="enviado">Los datos fueron enviados correctamente</p>
             
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            
+            <button type="button" id="boton-enviar" class="btn btn-primary">Enviar</button>
         </form>
         <hr>
         <div class="jumbotron mt-3">
