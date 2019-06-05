@@ -76,7 +76,31 @@
         apellido: 'Perez',
         edad: 32,
         mail: 'juan@gmail.com',
-        foto:'https://www.iconfinder.com/icons/386463/daemon_free_bsd_freebsd_icon',
+        foto:'https://cdn0.iconfinder.com/data/icons/avatar-vol-2-4/512/9-256.png',
+        sumar3: function(a,b){
+            return a+b;
+        }  
+
+    };
+
+    var obj2={
+        nombre: 'Ana',
+        apellido: 'Gonzalez',
+        edad: 23,
+        mail: 'ana@gmail.com',
+        foto:'https://cdn1.iconfinder.com/data/icons/avatar-vol-9/512/10-256.png',
+        sumar3: function(a,b){
+            return a+b;
+        }  
+
+    };
+
+    var obj3={
+        nombre: 'Pedro',
+        apellido: 'Lopez',
+        edad: 55,
+        mail: 'pedro@gmail.com',
+        foto:'https://cdn0.iconfinder.com/data/icons/avatar-vol-2-4/512/8-256.png',
         sumar3: function(a,b){
             return a+b;
         }  
@@ -88,7 +112,7 @@
         'Perez',
         32,
         'juan@gmail.com',
-        'https://www.iconfinder.com/icons/386463/daemon_free_bsd_freebsd_icon'  
+        'https://cdn0.iconfinder.com/data/icons/avatar-vol-2-4/512/2-256.png'  
 
         ];
 
@@ -118,7 +142,6 @@
     console.log(isNaN(res)?'Resultado no valido':res);
 
     //Sumar 2
-
     var sumar2=function(a,b){
         return a+b;
     }
@@ -127,16 +150,31 @@
     console.log(res2);
 
     //Sumar 3 dentro del objeto
-
     console.log(obj1.sumar3(5,100));
 
     //Crea una funcion para el objeto fuera de la declaracion del mismo
-
     obj1.multiplicar=function(a,b){
         return a*b;
     }
 
     console.log(obj1.multiplicar(5,5));
+
+    //Creo array de usuarios
+    var usuarios = [];
+    console.log(usuarios);
+    usuarios.push(obj1);
+    
+    console.log(usuarios);
+    usuarios.push(obj2);
+
+    console.log(usuarios);
+    usuarios.push(obj3);
+
+    console.log(usuarios);
+    
+    usuarios.forEach(function(usuarios){
+        console.log(usuarios.nombre, usuarios.foto);
+    })
     
     </script>
 </body>
