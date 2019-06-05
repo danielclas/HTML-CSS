@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,19 +39,68 @@
             $('#parrafo').css('background-color','');
             $('#parrafo').css('color','');
         });
-    
+
+        var ocultar=false;
+        var cambiarImagen=false;
+
+        //Funcion que detecta cuando el boton es presionado
+        $('#boton').click(function(){
+
+            ocultar=!ocultar;
+
+            if(ocultar){
+                //Cuando es presionado, oculta el texto y cambia el contenido del boton
+                $('#parrafo2').hide();
+                $('#boton').text('Mostrar');
+             }
+            else{
+                //Cuando es presionado de nuevo, muestra el texto y cambia el contenido del boton
+                $('#parrafo2').show();   
+                $('#boton').text('Ocultar'); 
+            } 
+        });
+        
+        //Funcion que obtiene o cambia el valor
+        $('#nombre').val('Nombre'); 
+        //Funcion que detecta cuando una tecla se levanta
+
+        $('#nombre').keyup(function(){
+
+            console.log('Cambio');
+            var str=$('#nombre').val();            
+
+            if(str=='' || str!='Juan'){
+                //Si la cadena no es valida, img=thumbs down y color red
+                console.log('NO');
+                $('#nombre').css('background-color','red');                
+                $('#imagen').attr('src', 'https://sitejerk.com/images/thumbs-down-emoji-png-4.png');
+            } 
+            else{              
+                //Si la cadena no es valida, img=thumbs up y color green
+                console.log('SI');
+                $('#nombre').css('background-color','green');                             
+                $('#imagen').attr('src', 'http://icons.iconarchive.com/icons/google/noto-emoji-people-bodyparts/256/12008-thumbs-up-icon.png');
+            }
+            
+        });
     
     })      
                 
     </script>        
 
+
     <div></div>   
         <p id="texto-id"></p>
         <p class="texto-class"></p>
         <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta atque, cum libero dolor optio quaerat possimus. Laboriosam, nemo quaerat dolor consectetur cupiditate nobis qui maxime, esse quo nesciunt illo!</p>
-    <script>
-    
-    </script>
-    
+        <button id="boton">Ocultar</button>
+        <p id="parrafo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta atque, cum libero dolor optio quaerat possimus. Laboriosam, nemo quaerat dolor consectetur cupiditate nobis qui maxime, esse quo nesciunt illo!</p>    
+
+    Ingrese 'Juan'
+    <br>
+    <input id="nombre" type="text">
+    <hr>
+
+    <img id="imagen" src="https://sitejerk.com/images/thumbs-down-emoji-png-4.png" width="150" alt="">
 </body>
 </html>

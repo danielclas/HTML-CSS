@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <script>
+
+        var usuario = [
+            {
+                nombre: 'Juan',
+                edad: 22
+            },
+            {
+                nombre: 'Pedro',
+                edad: 29
+            },
+            {
+                nombre: 'Lucas',
+                edad: 52
+            },
+            {
+                nombre: 'Juana',
+                edad: 33
+            },
+            {
+                nombre: 'Ana',
+                edad: 33
+            },
+            {
+                nombre: 'Daniel',
+                edad: 83
+            }
+        ];
+
+        function validar(e){
+                
+                var id=e.id;             
+                var dato= $('#'+id).val();
+                console.log(id+dato);
+
+                if(dato=='')console.log('Error');
+            }
+
+        $(document).ready(function () {
+            console.log('Documento listo');
+
+            $('#enviar-datos').click(function () {
+                enviarDatosPost(usuario);
+            })
+
+            function enviarDatosPost(usuario) {
+                for (var i = 0; i < usuario.length; i++) {
+                    $.ajax({
+
+                        url: 'https://5cf8019e7f67dd0014a62ef9.mockapi.io/usuariosAjax',
+                        dataType: 'json',
+                        type: 'post',
+                        //contentType: 'application/json',
+                        data: usuario[i],
+                        //processData: false,
+                        success: function (data, textStatus, jQxhr) {
+                            console.log('OK!', data);
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+                            console.log(errorThrown);
+                        }
+                    })
+                }
+
+
+            }
+
+            $('#leer-datos').click(leerDatosGet);         
+
+            function leerDatosGet() {
+                $.ajax({
+                    url: 'https://5cf8019e7f67dd0014a62ef9.mockapi.io/usuariosAjax',
+                    type: 'get',
+                    success: function (data, textStatus, jQxhr) {
+                        console.log('OK!', data);
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                })
+
+            }
+
+        });
+
+    </script>
+
+    <div class="container">
+        <h1>Formulario de envio</h1>
+        <hr>       
+
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" onblur="validar(this)" id="nombre" placeholder="Ingrese nombre">                
+            </div>
+            <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" onblur="validar(this)" id="apellido" placeholder="Ingrese apellido">                
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" onblur="validar(this)" id="email" placeholder="Ingrese email">
+            </div>
+            <div class="form-group">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" class="form-control" onblur="validar(this)" id="contraseña" placeholder="Ingrese contraseña">
+                </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <hr>
+        <div class="jumbotron mt-3">
+                <button class="btn btn-warning" id="enviar-datos">Enviar Datos</button>
+                <button class="btn btn-success" id="leer-datos">Leer Datos</button>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
