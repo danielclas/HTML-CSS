@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+    /*Funciones String
+
+    var str1='Hola';
+    console.log(str1, typeof str1);
+    console.log(str1.length);
+    console.log(str1.charAt(0));
+    var str2='Mundo';
+    var str3=(str1.concat(' ').concat(str2));
+    console.log(str3);
+    console.log(str3.indexOf('do'));
+    var str4=str3.replace('Hola', 'Chau');
+    console.log(str4);
+    var array1=str4.split(' ');
+    console.log(array1);
+    var str5=array1.join('.');
+    console.log(str5);
+    console.log(str5.substr(2, 4));
+    console.log(str5.toLowerCase());
+    console.log(str5.toUpperCase());
+    var str6='    123     ';
+    console.log('('+str6+')');
+    console.log('('+str6.trim()+')');
+
+    */
+
+    /* ARRAY METHODS
+
+    var numeros=[1,2,3,4,5,6,7];
+    console.log(numeros[2]);
+
+    for(var i=0 ; i<numeros.length ; i++){
+        console.log(numeros[i]);
+    }
+
+    //Agrega un nro a la ultima posicion
+    numeros.push(8);    
+    console.log(numeros);
+
+    //Saca el ultimo numero
+    numeros.pop();    
+    console.log(numeros);
+
+    //Agrega al primer lugar
+    numeros.unshift(88);
+    console.log(numeros);
+
+    //Saco el nro del primer lugar
+    numeros.shift();
+    console.log(numeros);
+
+    //Desde el indice 2, sacame 1 elemento
+    numeros.splice(2,1);
+    console.log(numeros);
+
+    */
+
+    /* Objetos */
+
+    var obj1={
+        nombre: 'Juan',
+        apellido: 'Perez',
+        edad: 32,
+        mail: 'juan@gmail.com',
+        foto:'https://www.iconfinder.com/icons/386463/daemon_free_bsd_freebsd_icon',
+        sumar3: function(a,b){
+            return a+b;
+        }  
+
+    };
+
+    var array=[
+        'Juan',
+        'Perez',
+        32,
+        'juan@gmail.com',
+        'https://www.iconfinder.com/icons/386463/daemon_free_bsd_freebsd_icon'  
+
+        ];
+
+    console.log(obj1.nombre);
+    console.log(array[0]);
+    console.log(obj1['nombre']);
+
+    //Recorro array con for-each
+    array.forEach(function(usuario, index){
+        console.log(index, '-->', usuario);
+    });
+
+    //Recorro objeto con for-in
+    for(var key in obj1){
+        console.log(key, obj1[key]);
+    }
+
+    //Devuelve array con las claves
+    console.log(Object.keys(obj1));
+    console.log(Object.keys(obj1).length);
+
+    function sumar(a,b){
+        return a+b;
+    }
+
+    var res=sumar();
+    console.log(isNaN(res)?'Resultado no valido':res);
+
+    //Sumar 2
+
+    var sumar2=function(a,b){
+        return a+b;
+    }
+
+    var res2=sumar2(5,8);
+    console.log(res2);
+
+    //Sumar 3 dentro del objeto
+
+    console.log(obj1.sumar3(5,100));
+
+    //Crea una funcion para el objeto fuera de la declaracion del mismo
+
+    obj1.multiplicar=function(a,b){
+        return a*b;
+    }
+
+    console.log(obj1.multiplicar(5,5));
+    
+    </script>
+</body>
+</html>
