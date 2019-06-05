@@ -60,7 +60,13 @@
         ];
 
         var datosFormulario = {};
-        
+        var regExp1=new RegExp('');
+        //Expresiones regulares, proxima clase
+        var algo=regExp1.test(nombre);
+        //Envio para que chequee la variable "nombre"
+        //devuelve 1 o 0
+        //Ejemplo regExp de email ^[a-zA-z0-9]+@[a-zA-z]+\.[a-zA-z]$
+        // ^indica comienzo, $indica final
 
         function validar(e){
 
@@ -80,7 +86,9 @@
 
         $(document).ready(function () {
 
+            //Escondo el mensaje de que los datos fueron enviados al cargar el documento
             $('#enviado').hide();
+            //Escondo todos los avisos de error al cargar el documento
             $('#error-nombre').hide();
             $('#error-contraseña').hide();
             $('#error-apellido').hide();
