@@ -60,30 +60,76 @@
         ];
 
         var datosFormulario = {};
-        var regExp1=new RegExp('');
+        console.log('Expresiones regulares');
+        var regExp1=/co[a-z][aeiou]/i;
+        var texto='Hola mundo como estan?';
+
+        var rta=regExp1.test(texto);
+        console.log(rta);   
+       
+
+
+
+
+
+
         //Expresiones regulares, proxima clase
-        var algo=regExp1.test(nombre);
+        //var algo=regExp1.test(nombre);
         //Envio para que chequee la variable "nombre"
         //devuelve 1 o 0
         //Ejemplo regExp de email ^[a-zA-z0-9]+@[a-zA-z]+\.[a-zA-z]$
         // ^indica comienzo, $indica final
 
-        function validar(e){
+            function validar(e){
 
+                    var id=e.id;             
                 var id=e.id;             
-                var dato= $('#'+id).val();
+                    var id=e.id;             
+                    var dato= $('#'+id).val();
+                    console.log(id+dato);              
                 console.log(id+dato);              
-                if(dato!=''){
+                    console.log(id+dato);              
+                    if(dato!=''){
+                        datosFormulario[id]=dato;                       
+                        $('#error-'+id).hide();
+                    }else{
+                        $('#error-'+id).show();
+                    }
+                }    
 
-                    datosFormulario[id]=dato;   
-                    $('#error-'+id).hide();
-                }else{
-                    $('#error-'+id).show();
-                }
-            }
-        
+            var regExpTexto = /^[a-zA-Z]+$/i;
+            var regExpEdad = /^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/i;
+            var regExpPassword= /^[a-z0-9]+@[a-z0-9]+\.[a-z]{3}(\.[a-z]{2})?$/i;
+            var regExpMail = /^[a-z0-9!".$%&/()=]+$/i;
+            var regExp;
+
+             function validar2(e){
+                var id=e.id;              
+                var  type=e.type;
+                var dato= $('#'+id).val();                              
+                console.log(id+dato, '('+dato+')');
+
+                if(type=='text')regExp=regExpTexto;
+                else if(type=='number')regExp=regExpEdad;
+                else if(type=='email')regExp=regExpMail;
+                else if(type=='password')regExp=regExpPassword;
+                else regExp=/^[a-z0-9]+$/i;
 
 
+                    if(regExpMail.test(dato)){
+                        datosFormulario[id]=dato;   
+                        $('#error-'+id).hide();
+                    }else{
+                        $('#error-'+id).show();
+                    }
+                }    
+
+             
+                    
+
+
+
+         
         $(document).ready(function () {
 
             //Escondo el mensaje de que los datos fueron enviados al cargar el documento
@@ -165,25 +211,25 @@
         <form novalidate>
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" onblur="validar(this)" id="nombre" placeholder="Ingrese nombre">                
+                <input type="text" class="form-control" onkeyup="validar2(this)" onblur="validar2(this)" id="nombre" placeholder="Ingrese nombre">                
             <div id="error-nombre" class="alert alert-danger">Campo no valido</div>
             </div>
             
             <div class="form-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" onblur="validar(this)" id="apellido" placeholder="Ingrese apellido">                
+                    <input type="text" class="form-control" onkeyup="validar2(this)" onblur="validar2(this)" id="apellido" placeholder="Ingrese apellido">                
             <div id="error-apellido" class="alert alert-danger">Campo no valido</div>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" onblur="validar(this)" id="email" placeholder="Ingrese email">
+                <input type="email" class="form-control" onkeyup="validar2(this)" onblur="validar2(this)" id="email" placeholder="Ingrese email">
             <div id="error-email" class="alert alert-danger">Campo no valido</div>
             </div>
 
             <div class="form-group">
                 <label for="contraseña">Contraseña</label>
-                <input type="password" class="form-control" onblur="validar(this)" id="contraseña" placeholder="Ingrese contraseña">
+                <input type="password" class="form-control" onkeyup="validar2(this)" onblur="validar2(this)" id="contraseña" placeholder="Ingrese contraseña">
             <div id="error-contraseña" class="alert alert-danger">Campo no valido</div>    
             </div>
 
